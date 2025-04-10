@@ -38,6 +38,9 @@ const createScene = function() {
         camera.setTarget(center);
         camera.radius = boundingInfo.boundingBox.maximumWorld.subtract(boundingInfo.boundingBox.minimumWorld).length() * 2;
         
+        // Misura drastica: invertiamo la scala anziché ruotare
+        meshes[0].scaling = new BABYLON.Vector3(1, -1, 1);
+        
         // Ottimizziamo il rendering per dispositivi mobili
         meshes[0].freezeWorldMatrix(); // Ottimizza le performance
     });
